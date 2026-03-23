@@ -113,7 +113,7 @@ export default function HomePage() {
             className="animate-fade-up delay-200 mt-7 text-[1.0625rem] leading-relaxed max-w-[520px] mx-auto text-muted-foreground"
           >
             AIP-141 is 10×-ing Aptos gas fees. The SmoothSend Pilot Program gives your
-            dApp <strong className="text-foreground font-semibold">30 days of 100% gasless transactions</strong> — free.
+            dApp <strong className="text-foreground font-semibold">30 days OR $10 of 100% gasless transactions</strong> — free.
             Selected projects get white-glove integration support.
           </p>
 
@@ -140,7 +140,7 @@ export default function HomePage() {
           <p
             className="animate-fade-up delay-400 mt-8 label-mono text-foreground-dim"
           >
-            Limited spots · Curated · Free for 30 days
+            Limited spots · Curated · Free for 30 days or $10
           </p>
         </section>
 
@@ -170,8 +170,8 @@ export default function HomePage() {
             {[
               {
                 icon: Zap,
-                title: "30 Days Free Gas",
-                body: "Zero gas fees for every user transaction during the pilot. We sponsor every Aptos transaction — no caps, no catches, no credit card.",
+                title: "30 Days OR $10 Free Gas",
+                body: "Zero gas fees for every user transaction during the pilot. We sponsor every Aptos transaction up to 30 days or $10 in gas fees — no credit card required.",
               },
               {
                 icon: BarChart3,
@@ -328,12 +328,13 @@ export default function HomePage() {
                 { label: "Docs", href: "https://docs.smoothsend.xyz" },
                 { label: "Twitter/X", href: "https://x.com/SmoothSend" },
                 { label: "Status", href: "https://status.smoothsend.xyz" },
+                { label: "Terms", href: "/terms" },
               ].map(({ label, href }) => (
                 <a
                   key={label}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="label-mono transition-colors duration-150 hover:text-white text-foreground-dim"
                 >
                   {label}

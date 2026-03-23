@@ -265,9 +265,17 @@ function Step3({ data, onChange, errors }: { data: FormData; onChange: (k: keyof
           {data.data_agreement && <Check className="w-3 h-3 text-white" strokeWidth={3} />}
         </div>
         <span className="text-sm leading-relaxed text-muted-foreground">
-          I agree to share{" "}
-          <strong className="font-medium text-foreground">before/after transaction volume data</strong>{" "}
-          with the SmoothSend team if selected. Used only to measure pilot effectiveness.
+          I agree to the{" "}
+          <a 
+            href="/terms" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="font-medium text-primary hover:underline"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Terms & Conditions
+          </a>
+          , including sharing transaction data and program usage metrics with SmoothSend.
         </span>
       </button>
       <FieldError msg={errors.data_agreement} />
