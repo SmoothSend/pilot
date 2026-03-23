@@ -21,6 +21,7 @@ export function formatDate(dateString: string): string {
 }
 
 export function buildTwitterShareUrl(projectName: string): string {
-  const tweet = `Preparing for the AIP-141 gas spike. Just applied to the @SmoothSend Pilot Program to bring 100% gasless txs to ${projectName} on @Aptos_Network! ⛽🚫\n\nhttps://pilot.smoothsend.xyz`;
+  const url = `https://pilot.smoothsend.xyz/?partner=${encodeURIComponent(projectName)}`;
+  const tweet = `Preparing for the AIP-141 gas spike. Just applied to the @SmoothSend Pilot Program to bring 100% gasless txs to ${projectName} on @Aptos ⛽🚫\n\n${url}`;
   return `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`;
 }

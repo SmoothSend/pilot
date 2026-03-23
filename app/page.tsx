@@ -1,5 +1,45 @@
+import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Zap, BarChart3, Shield, ExternalLink } from "lucide-react";
+
+type Props = {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export async function generateMetadata(
+  props: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const searchParams = await props.searchParams;
+  const partner =
+    typeof searchParams.partner === "string" ? searchParams.partner : null;
+
+  if (partner) {
+    const previousImages = (await parent).openGraph?.images || [];
+    const encodedPartner = encodeURIComponent(partner);
+    const ogUrl = `/api/og?name=${encodedPartner}`;
+
+    return {
+      openGraph: {
+        images: [
+          {
+            url: ogUrl,
+            width: 1200,
+            height: 630,
+            alt: `${partner} 🤝 SmoothSend`,
+          },
+          ...previousImages,
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        images: [ogUrl],
+      },
+    };
+  }
+
+  return {};
+}
 
 export default function HomePage() {
   return (

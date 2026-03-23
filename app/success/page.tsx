@@ -98,7 +98,7 @@ function SuccessContent() {
             Preparing for the AIP-141 gas spike. Just applied to the{" "}
             <span style={{ color: "#7595FF" }}>@SmoothSend</span> Pilot Program to bring 100% gasless
             txs to <strong className="font-medium text-foreground">{projectName}</strong> on{" "}
-            <span style={{ color: "#7595FF" }}>@Aptos_Network</span>! ⛽🚫
+            <span style={{ color: "#7595FF" }}>@Aptos</span>! ⛽🚫
           </div>
 
           <a

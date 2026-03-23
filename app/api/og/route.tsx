@@ -1,163 +1,94 @@
-import { ImageResponse } from "next/og";
-import type { NextRequest } from "next/server";
+import { ImageResponse } from 'next/og';
 
-export const runtime = "edge";
-export const contentType = "image/png";
+export const runtime = 'edge';
 
-export async function GET(request: NextRequest) {
-  const { searchParams } = request.nextUrl;
-  const projectName = searchParams.get("name") ?? "Your Project";
+export async function GET(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const hasName = searchParams.has('name');
+    const name = hasName
+      ? searchParams.get('name')?.slice(0, 100)
+      : 'dApp';
 
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "1200px",
-          height: "630px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#0B0C15",
-          fontFamily: "sans-serif",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Background glow orbs */}
+    return new ImageResponse(
+      (
         <div
           style={{
-            position: "absolute",
-            top: "-100px",
-            left: "-100px",
-            width: "500px",
-            height: "500px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(117,149,255,0.15) 0%, transparent 70%)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-80px",
-            right: "-80px",
-            width: "400px",
-            height: "400px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)",
-          }}
-        />
-
-        {/* Grid lines */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-
-        {/* Content */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "20px",
-            position: "relative",
-            zIndex: 1,
-            padding: "0 80px",
-            textAlign: "center",
+            height: '100%',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#0a0a0a',
+            fontFamily: 'Inter, sans-serif',
           }}
         >
-          {/* Pilot badge */}
+          {/* Background effects */}
           <div
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              padding: "6px 16px",
-              borderRadius: "100px",
-              background: "rgba(6,182,212,0.1)",
-              border: "1px solid rgba(6,182,212,0.35)",
-              color: "#06b6d4",
-              fontSize: "14px",
-              fontWeight: "700",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
+              position: 'absolute',
+              top: '-50%',
+              left: '-50%',
+              width: '200%',
+              height: '200%',
+              background: 'radial-gradient(circle at 50% 120%, rgba(117,149,255,0.2) 0%, transparent 50%)',
+              zIndex: 0,
             }}
-          >
-            🚀 SmoothSend Pilot Program
-          </div>
-
-          {/* Main headline */}
+          />
+          
           <div
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "24px",
-              flexWrap: "nowrap",
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 10,
             }}
           >
-            <span
-              style={{
-                fontSize: "64px",
-                fontWeight: "900",
-                color: "white",
-                lineHeight: 1.1,
-                maxWidth: "480px",
-                wordBreak: "break-word",
-              }}
-            >
-              {projectName}
-            </span>
-            <span style={{ fontSize: "48px", color: "#475569" }}>×</span>
-            <span
-              style={{
-                fontSize: "64px",
-                fontWeight: "900",
-                background: "linear-gradient(135deg, #7595FF, #94ABFF)",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-                lineHeight: 1.1,
-              }}
-            >
-              SmoothSend
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '40px' }}>
+              <div style={{ fontSize: 72, fontWeight: 800, color: 'white', letterSpacing: '-0.03em' }}>
+                {name}
+              </div>
+              <div style={{ fontSize: 72, margin: '0 32px' }}>
+                🤝
+              </div>
+              <div style={{ fontSize: 72, fontWeight: 800, color: '#7595FF', letterSpacing: '-0.03em' }}>
+                SmoothSend
+              </div>
+            </div>
+            
+            <div style={{ display: 'flex', fontSize: 36, color: '#a1a1aa', fontWeight: 500, letterSpacing: '-0.02em' }}>
+              Pilot Program Applicant
+            </div>
+
+            <div style={{ 
+              display: 'flex',
+              marginTop: '60px', 
+              padding: '16px 32px', 
+              borderRadius: '100px', 
+              background: 'rgba(255,255,255,0.05)', 
+              border: '1px solid rgba(255,255,255,0.1)',
+              color: 'white',
+              fontSize: 28,
+              fontWeight: 500,
+              letterSpacing: '-0.01em',
+              alignItems: 'center',
+            }}>
+              100% Gasless TXs on Aptos
+            </div>
           </div>
-
-          {/* Subtext */}
-          <p
-            style={{
-              fontSize: "22px",
-              color: "#94A3B8",
-              margin: 0,
-              lineHeight: 1.5,
-            }}
-          >
-            30 Days of 100% Gasless Transactions on Aptos ⛽🚫
-          </p>
-
-          {/* URL */}
-          <p
-            style={{
-              fontSize: "16px",
-              color: "#475569",
-              margin: 0,
-            }}
-          >
-            pilot.smoothsend.xyz
-          </p>
         </div>
-      </div>
-    ),
-    {
-      width: 1200,
-      height: 630,
-    }
-  );
+      ),
+      {
+        width: 1200,
+        height: 630,
+      },
+    );
+  } catch (e: any) {
+    console.log(`${e.message}`);
+    return new Response(`Failed to generate the image`, {
+      status: 500,
+    });
+  }
 }
