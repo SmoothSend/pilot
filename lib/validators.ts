@@ -25,13 +25,6 @@ export const step2Schema = z.object({
   }),
 });
 
-export const step3Schema = z.object({
-  why_gasless: z
-    .string()
-    .min(50, "Please write at least 50 characters")
-    .max(1000, "Maximum 1,000 characters"),
-});
-
 export const step4Schema = z.object({
   email: z.string().email("Please enter a valid email address"),
   telegram: z.string().min(1, "Telegram handle is required").max(64),
@@ -44,7 +37,6 @@ export const step4Schema = z.object({
 
 export const fullApplicationSchema = step1Schema
   .merge(step2Schema)
-  .merge(step3Schema)
   .merge(step4Schema);
 
 export type FullApplication = z.infer<typeof fullApplicationSchema>;

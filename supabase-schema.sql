@@ -17,10 +17,7 @@ CREATE TABLE IF NOT EXISTS public.applications (
   daily_txs       TEXT NOT NULL CHECK (daily_txs IN ('<50', '50-250', '250-1000', '1000+')),
   gas_solution    TEXT NOT NULL CHECK (gas_solution IN ('users_pay', 'built_own', 'third_party')),
 
-  -- Step 3: The Why
-  why_gasless     TEXT NOT NULL CHECK (char_length(why_gasless) >= 50),
-
-  -- Step 4: Contact & Commitment
+  -- Step 3: Contact & Commitment
   email           TEXT NOT NULL,
   telegram        TEXT NOT NULL,
   data_agreement  BOOLEAN NOT NULL DEFAULT TRUE,

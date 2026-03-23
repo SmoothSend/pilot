@@ -25,7 +25,6 @@ export type Application = {
   mainnet_status: "live" | "testnet" | "migrating";
   daily_txs: "<50" | "50-250" | "250-1000" | "1000+";
   gas_solution: "users_pay" | "built_own" | "third_party";
-  why_gasless: string;
   email: string;
   telegram: string;
   data_agreement: boolean;
@@ -272,11 +271,6 @@ function ApplicationRow({ app, onStatusChange, onNotesSave }: {
 
             {/* Right */}
             <div className="space-y-5">
-              <div>
-                <p className="label-mono mb-3">Why Gasless?</p>
-                <p className="text-sm leading-relaxed text-muted-foreground">{app.why_gasless}</p>
-              </div>
-
               <div>
                 <p className="label-mono mb-3">Internal Notes</p>
                 <textarea

@@ -10,19 +10,17 @@ import {
   Loader2,
   Building2,
   BarChart3,
-  Lightbulb,
   Handshake,
 } from "lucide-react";
 import { submitApplication } from "@/app/actions";
 import type { FullApplication } from "@/lib/validators";
 
 type FormData = Partial<FullApplication>;
-const TOTAL_STEPS = 4;
+const TOTAL_STEPS = 3;
 
 const STEP_META = [
   { icon: Building2, label: "Project Identity", color: "#7595FF" },
   { icon: BarChart3, label: "Tech & Traction", color: "#10B981" },
-  { icon: Lightbulb, label: "The Why", color: "#22d3ee" },
   { icon: Handshake, label: "Contact", color: "#a78bfa" },
 ];
 
@@ -200,40 +198,7 @@ function Step2({ data, onChange, errors }: { data: FormData; onChange: (k: keyof
 }
 
 // ─── Step 3 ───────────────────────────────────────────────────────────────────
-function Step3({ data, onChange, errors }: { data: FormData; onChange: (k: keyof FormData, v: string) => void; errors: Record<string, string> }) {
-  const charCount = (data.why_gasless ?? "").length;
-  return (
-    <div>
-      <label className="form-label">
-        Why are gasless transactions critical for your users right now?{" "}
-        <span className="text-destructive">*</span>
-      </label>
-      <div className="relative">
-        <textarea
-          id="why_gasless"
-          className="form-input"
-          style={{ minHeight: "190px", resize: "vertical" }}
-          placeholder="Be specific — what friction are your users experiencing today? Drop-off at gas prompts? Failed transactions? What would change with gasless UX?"
-          value={data.why_gasless ?? ""}
-          onChange={(e) => onChange("why_gasless", e.target.value)}
-          maxLength={1000}
-        />
-        <span
-          className={`absolute bottom-3 right-3 text-xs ${charCount > 900 ? "text-destructive" : "text-foreground-dim"}`}
-        >
-          {charCount}/1,000
-        </span>
-      </div>
-      <p className="form-hint">
-        Minimum 50 characters. More specificity = higher chance of selection.
-      </p>
-      <FieldError msg={errors.why_gasless} />
-    </div>
-  );
-}
-
-// ─── Step 4 ───────────────────────────────────────────────────────────────────
-function Step4({ data, onChange, errors }: { data: FormData; onChange: (k: keyof FormData, v: string | boolean) => void; errors: Record<string, string> }) {
+function Step3({ data, onChange, errors }: { data: FormData; onChange: (k: keyof FormData, v: string | boolean) => void; errors: Record<string, string> }) {
   return (
     <div className="space-y-5">
       <div>
@@ -343,9 +308,6 @@ export default function ApplyPage() {
       if (!formData.gas_solution) e.gas_solution = "Please select one";
     }
     if (step === 3) {
-      if (!formData.why_gasless || formData.why_gasless.length < 50) e.why_gasless = "Please write at least 50 characters";
-    }
-    if (step === 4) {
       if (!formData.email || !/^\S+@\S+\.\S+$/.test(formData.email)) e.email = "Valid email required";
       if (!formData.telegram?.trim()) e.telegram = "Required";
       if (!formData.data_agreement) e.data_agreement = "You must agree to continue";
@@ -493,7 +455,6 @@ export default function ApplyPage() {
                 {step === 1 && <Step1 data={formData} onChange={handleChange} errors={errors} />}
                 {step === 2 && <Step2 data={formData} onChange={handleChange} errors={errors} />}
                 {step === 3 && <Step3 data={formData} onChange={handleChange} errors={errors} />}
-                {step === 4 && <Step4 data={formData} onChange={handleChange} errors={errors} />}
               </motion.div>
             </AnimatePresence>
           </div>

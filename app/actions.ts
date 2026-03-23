@@ -50,7 +50,6 @@ export async function submitApplication(
         mainnet_status: parsed.data.mainnet_status,
         daily_txs: parsed.data.daily_txs,
         gas_solution: parsed.data.gas_solution,
-        why_gasless: parsed.data.why_gasless,
         email: parsed.data.email,
         telegram: parsed.data.telegram,
         data_agreement: parsed.data.data_agreement,

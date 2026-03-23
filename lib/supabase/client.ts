@@ -15,7 +15,6 @@ export type Application = {
   mainnet_status: "live" | "testnet" | "migrating";
   daily_txs: "<50" | "50-250" | "250-1000" | "1000+";
   gas_solution: "users_pay" | "built_own" | "third_party";
-  why_gasless: string;
   email: string;
   telegram: string;
   data_agreement: boolean;
