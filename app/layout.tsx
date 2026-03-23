@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     "free gas",
   ],
   authors: [{ name: "SmoothSend", url: "https://smoothsend.xyz" }],
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   openGraph: {
     title: "SmoothSend Pilot Program — 30 Days of Free Gas",
     description:
@@ -37,6 +42,14 @@ export const metadata: Metadata = {
     siteName: "SmoothSend Pilot Program",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "SmoothSend Pilot Program — 30 Days of Free Gas on Aptos",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -45,6 +58,7 @@ export const metadata: Metadata = {
       "AIP-141 is 10x-ing gas fees on Aptos. Apply to the SmoothSend Pilot Program and protect your users.",
     site: "@SmoothSend",
     creator: "@SmoothSend",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
