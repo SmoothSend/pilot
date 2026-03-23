@@ -121,6 +121,7 @@ function Step1({ data, onChange, errors }: { data: FormData; onChange: (k: keyof
           <input
             id="one_liner"
             className="form-input pr-14"
+            style={{ paddingRight: "3.5rem" }}
             placeholder="e.g. Decentralized perpetuals on Aptos with zero liquidation surprises"
             value={data.one_liner ?? ""}
             onChange={(e) => onChange("one_liner", e.target.value)}
@@ -216,7 +217,7 @@ function Step3({ data, onChange, errors }: { data: FormData; onChange: (k: keyof
         </label>
         <div className="relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm font-medium text-foreground-ghost">@</span>
-          <input id="telegram" className="form-input pl-7" placeholder="yourhandle"
+          <input id="telegram" className="form-input pl-7" style={{ paddingLeft: "1.75rem" }} placeholder="yourhandle"
             value={(data.telegram ?? "").replace(/^@/, "")}
             onChange={(e) => onChange("telegram", "@" + e.target.value.replace(/^@/, ""))} />
         </div>
@@ -337,7 +338,7 @@ export default function ApplyPage() {
     } finally {
       setIsSubmitting(false);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, formData, router]);
 
   function handlePrev() {
@@ -380,9 +381,9 @@ export default function ApplyPage() {
         {/* Logo / back to home */}
         <div className="w-full max-w-lg mb-8 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2 btn-ghost px-0">
-            <img 
-              src="/logo.svg" 
-              alt="SmoothSend" 
+            <img
+              src="/logo.svg"
+              alt="SmoothSend"
               className="w-6 h-6"
             />
             <span className="text-sm font-medium text-muted-foreground">SmoothSend</span>
@@ -404,8 +405,8 @@ export default function ApplyPage() {
                     background: done
                       ? "#7595FF"
                       : active
-                      ? "#7595FF"
-                      : "rgba(255,255,255,0.12)",
+                        ? "#7595FF"
+                        : "rgba(255,255,255,0.12)",
                   }}
                 />
               );
@@ -474,9 +475,9 @@ export default function ApplyPage() {
               <ArrowLeft className="w-3.5 h-3.5" /> Back
             </button>
 
-            <div className="flex flex-col items-end gap-1.5">
+            <div className="flex flex-col items-end relative">
               {submitError && (
-                <p className="text-xs text-destructive">{submitError}</p>
+                <p className="text-xs text-destructive absolute bottom-full mb-1.5 right-0 whitespace-nowrap">{submitError}</p>
               )}
               <button type="button" onClick={handleNext} disabled={isSubmitting} className="btn-primary">
                 {isSubmitting ? (
@@ -487,21 +488,6 @@ export default function ApplyPage() {
                   <>Continue <ArrowRight className="w-3.5 h-3.5" /></>
                 )}
               </button>
-              <p className="text-xs" style={{ color: "rgba(255,255,255,0.18)" }}>
-                Press{" "}
-                <kbd
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.10)",
-                    color: "rgba(255,255,255,0.35)",
-                    borderRadius: "4px",
-                    padding: "1px 5px",
-                    fontSize: "0.6875rem",
-                    fontFamily: "var(--font-mono)",
-                  }}
-                >Enter ↵</kbd>{" "}
-                to continue
-              </p>
             </div>
           </div>
         </div>

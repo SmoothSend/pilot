@@ -63,9 +63,9 @@ export default function HomePage() {
           <h1
             className="animate-fade-up delay-100 mt-6 text-[clamp(2.75rem,6vw,5rem)] font-semibold leading-[1.06] tracking-[-0.03em]"
           >
-            <span className="text-gradient-white">Your users shouldn&apos;t</span>
+            <span className="text-gradient-white">Gas is killing your dApp</span>
             <br />
-            <span className="text-gradient-primary">pay the gas bill.</span>
+            <span className="text-gradient-primary">Fix it for free</span>
           </h1>
 
           {/* Sub */}

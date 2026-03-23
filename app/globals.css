@@ -395,7 +395,7 @@
 .radio-option {
   width: 100%;
   text-align: left;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   border-radius: 0.75rem;
   transition: all 200ms ease;
   background: rgba(3,4,10,0.5);
