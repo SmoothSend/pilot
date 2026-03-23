@@ -89,16 +89,26 @@ function SuccessContent() {
 
           {/* Tweet preview */}
           <div
-            className="rounded-xl p-4 mb-5 text-sm leading-relaxed text-muted-foreground"
+            className="rounded-xl p-4 mb-5 text-sm leading-relaxed text-muted-foreground flex flex-col gap-3"
             style={{
               background: "rgba(0,0,0,0.2)",
               border: "1px solid rgba(255,255,255,0.05)",
             }}
           >
-            Preparing for the AIP-141 gas spike. Just applied to the{" "}
-            <span style={{ color: "#7595FF" }}>@SmoothSend</span> Pilot Program to bring 100% gasless
-            txs to <strong className="font-medium text-foreground">{projectName}</strong> on{" "}
-            <span style={{ color: "#7595FF" }}>@Aptos</span>! ⛽🚫
+            <div>
+              Preparing for the AIP-141 gas spike. Just applied to the{" "}
+              <span style={{ color: "#7595FF" }}>@SmoothSend</span> Pilot Program to bring 100% gasless
+              txs to <strong className="font-medium text-foreground">{projectName}</strong> on{" "}
+              <span style={{ color: "#7595FF" }}>@Aptos</span>! ⛽🚫
+            </div>
+            {/* Banner Preview */}
+            <div className="rounded-lg overflow-hidden border" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+              <img
+                src={`/api/og?name=${encodeURIComponent(projectName)}`}
+                alt={`${projectName} x SmoothSend banner`}
+                className="w-full h-auto aspect-[1200/630] object-cover"
+              />
+            </div>
           </div>
 
           <a
