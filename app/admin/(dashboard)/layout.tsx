@@ -38,12 +38,11 @@ export default async function AdminLayout({
         }}
       >
         <div className="flex items-center gap-2.5">
-          <div
-            className="w-6 h-6 rounded flex items-center justify-center text-[11px] font-bold text-white"
-            style={{ background: "linear-gradient(135deg, #7595FF, #5B7ADD)", boxShadow: "0 0 10px rgba(117,149,255,0.3)" }}
-          >
-            S
-          </div>
+          <img 
+            src="/logo.svg" 
+            alt="SmoothSend" 
+            className="w-6 h-6"
+          />
           <span className="font-semibold text-sm tracking-tight text-foreground">
             SmoothSend
           </span>

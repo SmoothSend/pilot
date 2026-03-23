@@ -55,15 +55,11 @@ export default function AdminLoginPage() {
       <div className="relative z-10 w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div
-            className="inline-flex w-10 h-10 rounded-xl items-center justify-center text-sm font-bold text-white mb-4"
-            style={{
-              background: "linear-gradient(135deg, #7595FF, #5B7ADD)",
-              boxShadow: "0 0 20px rgba(117,149,255,0.3), inset 0 1px 0 rgba(255,255,255,0.2)",
-            }}
-          >
-            S
-          </div>
+          <img 
+            src="/logo.svg" 
+            alt="SmoothSend" 
+            className="w-10 h-10 mx-auto mb-4"
+          />
           <h1 className="text-xl font-semibold tracking-tight text-foreground">
             Admin Access
           </h1>

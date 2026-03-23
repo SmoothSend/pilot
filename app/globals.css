@@ -78,8 +78,6 @@
 @layer base {
   *, *::before, *::after {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
   }
 
   *:focus-visible {
@@ -484,7 +482,8 @@
 
 .container-main {
   max-width: 1120px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0 1.5rem;
 }
 

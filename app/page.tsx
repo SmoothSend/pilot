@@ -13,17 +13,13 @@ export default function HomePage() {
       <div className="relative z-10">
 
         {/* ── Nav ── */}
-        <nav className="container-main flex items-center justify-between py-5">
+        <nav className="container-main flex items-center justify-between py-5 mt-8">
           <div className="flex items-center gap-2.5">
-            <div
-              className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold text-white"
-              style={{
-                background: "linear-gradient(135deg, #7595FF 0%, #5B7ADD 100%)",
-                boxShadow: "0 0 16px rgba(117,149,255,0.4), inset 0 1px 0 rgba(255,255,255,0.2)",
-              }}
-            >
-              S
-            </div>
+            <img 
+              src="/logo.svg" 
+              alt="SmoothSend" 
+              className="w-7 h-7"
+            />
             <span className="text-sm font-semibold tracking-tight text-foreground">
               SmoothSend
             </span>
@@ -287,7 +283,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16 mb-12">
             <Link href="/apply" className="btn-primary" style={{ fontSize: "0.9375rem", padding: "0.75rem 1.75rem" }}>
               Protect your users — Apply free
               <ArrowRight className="w-4 h-4" />

@@ -413,17 +413,16 @@ export default function ApplyPage() {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center min-h-screen px-4 py-16">
+      <div className="relative z-10 flex flex-col items-center min-h-screen px-4 py-16 pt-24">
 
         {/* Logo / back to home */}
         <div className="w-full max-w-lg mb-8 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2 btn-ghost px-0">
-            <div
-              className="w-6 h-6 rounded flex items-center justify-center text-[11px] font-bold text-white"
-              style={{ background: "linear-gradient(135deg,#7595FF,#5B7ADD)" }}
-            >
-              S
-            </div>
+            <img 
+              src="/logo.svg" 
+              alt="SmoothSend" 
+              className="w-6 h-6"
+            />
             <span className="text-sm font-medium text-muted-foreground">SmoothSend</span>
           </a>
 
@@ -453,7 +452,7 @@ export default function ApplyPage() {
         </div>
 
         {/* Main card */}
-        <div className="card-elevated w-full max-w-lg rounded-2xl overflow-hidden">
+        <div className="card-elevated w-full max-w-lg rounded-2xl overflow-hidden mb-16">
 
           {/* Card header */}
           <div
