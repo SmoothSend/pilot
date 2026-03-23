@@ -44,8 +44,13 @@
 
   /* Semantic */
   --success:          #10B981;
-  --destructive:      #EF4444;
-  --cyan:             #06b6d4;
+  --destructive:      #ff5c5c;
+  --destructive-dim:  #e54545;
+  --destructive-glow: rgba(255,92,92,0.20);
+
+  /* Accent Palette */
+  --accent-secondary: #8B7AFF;
+  --accent-tertiary:  #5DADE2;
 
   /* Borders — hairline, almost invisible */
   --border:           rgba(255,255,255,0.07);
@@ -88,9 +93,13 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   body {
+    margin: 0 !important;
+    padding: 0;
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
@@ -143,11 +152,11 @@
   transform: translateX(-50%);
   width: 900px;
   height: 700px;
-  background: radial-gradient(ellipse at center, rgba(117,149,255,0.18) 0%, rgba(117,149,255,0.06) 45%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(117,149,255,0.08) 0%, rgba(117,149,255,0.03) 45%, transparent 70%);
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(100px);
   pointer-events: none;
-  animation: blob-float 10s ease-in-out infinite;
+  animation: blob-float 12s ease-in-out infinite;
   z-index: 0;
 }
 
@@ -157,11 +166,11 @@
   left: -200px;
   width: 600px;
   height: 500px;
-  background: radial-gradient(ellipse at center, rgba(139,92,246,0.10) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(139,92,246,0.05) 0%, transparent 70%);
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(120px);
   pointer-events: none;
-  animation: blob-float 14s ease-in-out infinite reverse;
+  animation: blob-float 16s ease-in-out infinite reverse;
   z-index: 0;
 }
 
@@ -171,11 +180,11 @@
   right: -150px;
   width: 500px;
   height: 400px;
-  background: radial-gradient(ellipse at center, rgba(6,182,212,0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(91,122,221,0.04) 0%, transparent 70%);
   border-radius: 50%;
-  filter: blur(90px);
+  filter: blur(110px);
   pointer-events: none;
-  animation: blob-float 12s ease-in-out infinite 2s;
+  animation: blob-float 14s ease-in-out infinite 2s;
   z-index: 0;
 }
 
@@ -185,65 +194,40 @@
 
 /* Linear-style glass card */
 .card {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
+  background: rgba(255,255,255,0.03);
   border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.06),
-    0 2px 20px rgba(0,0,0,0.5),
-    0 0 60px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
   transition: border-color 280ms cubic-bezier(0.16,1,0.3,1),
-              box-shadow 280ms cubic-bezier(0.16,1,0.3,1),
               transform 280ms cubic-bezier(0.16,1,0.3,1);
   position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%);
-  border-radius: inherit;
-  pointer-events: none;
 }
 
 .card:hover {
   border-color: var(--border-hover);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.10),
-    0 8px 40px rgba(0,0,0,0.6),
-    0 0 80px rgba(117,149,255,0.08);
   transform: translateY(-2px);
 }
 
 /* Elevated card — more opaque, admin/form use */
 .card-elevated {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  background: rgba(255,255,255,0.05);
   border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.05),
-    0 4px 40px rgba(0,0,0,0.6),
-    inset 0 1px 0 rgba(255,255,255,0.06);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 /* Card variant: no hover lift (for list items) */
 .card-flat {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
+  background: rgba(255,255,255,0.03);
   border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.06),
-    0 2px 20px rgba(0,0,0,0.5),
-    0 0 60px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
   transition: background 180ms ease, border-color 180ms ease;
   position: relative;
-  overflow: hidden;
 }
 
 .card-flat:hover {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.03) 100%);
+  background: rgba(255,255,255,0.05);
   border-color: var(--border-hover);
 }
 

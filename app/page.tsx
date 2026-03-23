@@ -44,20 +44,16 @@ export default function HomePage() {
         <section className="container-main pt-24 pb-32 text-center">
 
           {/* AIP-141 pill */}
-          <div className="inline-flex items-center gap-2 animate-fade-up">
+          <div className="inline-flex items-center my-6 gap-2 animate-fade-up">
             <div
               className="badge"
               style={{
-                background: "rgba(6,182,212,0.08)",
-                border: "1px solid rgba(6,182,212,0.22)",
-                color: "#22d3ee",
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid var(--border)",
+                color: "var(--foreground-muted)",
               }}
             >
-              <span
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ background: "#22d3ee", boxShadow: "0 0 6px #22d3ee" }}
-              />
-              <span className="label-mono" style={{ color: "#22d3ee", letterSpacing: "0.08em" }}>
+              <span className="label-mono" style={{ letterSpacing: "0.08em" }}>
                 AIP-141 · Gas fees 10× incoming
               </span>
             </div>
@@ -65,7 +61,7 @@ export default function HomePage() {
 
           {/* Headline */}
           <h1
-            className="animate-fade-up delay-100 mt-12 text-[clamp(2.75rem,6vw,5rem)] font-semibold leading-[1.06] tracking-[-0.03em]"
+            className="animate-fade-up delay-100 mt-6 text-[clamp(2.75rem,6vw,5rem)] font-semibold leading-[1.06] tracking-[-0.03em]"
           >
             <span className="text-gradient-white">Your users shouldn&apos;t</span>
             <br />
@@ -134,48 +130,35 @@ export default function HomePage() {
             {[
               {
                 icon: Zap,
-                accentColor: "#7595FF",
-                accentBg: "rgba(117,149,255,0.10)",
                 title: "30 Days Free Gas",
                 body: "Zero gas fees for every user transaction during the pilot. We sponsor every Aptos transaction — no caps, no catches, no credit card.",
               },
               {
                 icon: BarChart3,
-                accentColor: "#10B981",
-                accentBg: "rgba(16,185,129,0.10)",
                 title: "3-Line Integration",
                 body: "Drop-in SDK compatible with Aptos Wallet Adapter. Your engineers can ship in an afternoon. Full documentation and support included.",
               },
               {
                 icon: Shield,
-                accentColor: "#22d3ee",
-                accentBg: "rgba(6,182,212,0.10)",
                 title: "Real Before/After Data",
                 body: "Track transaction volume, user retention, and conversion lifts. Hard data to justify making gasless permanent post-pilot.",
               },
-            ].map(({ icon: Icon, accentColor, accentBg, title, body }, i) => (
-              <div key={title} className="card p-8 group" style={{ animationDelay: `${i * 80}ms` }}>
-                {/* Accent glow on hover */}
+            ].map(({ icon: Icon, title, body }, i) => (
+              <div key={title} className="card p-8" style={{ animationDelay: `${i * 80}ms` }}>
                 <div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  style={{ background: `radial-gradient(ellipse 60% 50% at 50% 0%, ${accentBg}, transparent)` }}
-                />
-
-                <div
-                  className="relative w-10 h-10 rounded-xl flex items-center justify-center mb-5"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
                   style={{
-                    background: accentBg,
-                    border: `1px solid ${accentColor}22`,
-                    boxShadow: `0 0 20px ${accentColor}20`,
+                    background: 'rgba(117,149,255,0.08)',
+                    border: '1px solid rgba(117,149,255,0.15)',
                   }}
                 >
-                  <Icon className="w-4.5 h-4.5" style={{ color: accentColor }} />
+                  <Icon className="w-4.5 h-4.5" style={{ color: '#7595FF' }} />
                 </div>
 
-                <h3 className="relative text-base font-semibold mb-3.5 tracking-tight text-foreground">
+                <h3 className="text-base font-semibold mb-3.5 tracking-tight text-foreground">
                   {title}
                 </h3>
-                <p className="relative text-sm leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {body}
                 </p>
               </div>
@@ -195,14 +178,14 @@ export default function HomePage() {
           {/* Section label */}
           <div className="text-center mb-16">
             <div
-              className="badge mx-auto mb-4"
+              className="badge mx-auto mt-12"
               style={{
-                background: "rgba(239,68,68,0.08)",
-                border: "1px solid rgba(239,68,68,0.20)",
-                color: "#f87171",
+                background: "rgba(255,92,92,0.10)",
+                border: "1px solid rgba(255,92,92,0.25)",
+                color: "#ff8a8a",
               }}
             >
-              <span className="label-mono" style={{ color: "#f87171" }}>⚠ The AIP-141 Problem</span>
+              <span className="label-mono" style={{ color: "#ff8a8a" }}>⚠ The AIP-141 Problem</span>
             </div>
             <h2
               className="text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-tight text-foreground"
@@ -222,8 +205,8 @@ export default function HomePage() {
             <div
               className="card p-8"
               style={{
-                borderColor: "rgba(16,185,129,0.20)",
-                background: "linear-gradient(to bottom, rgba(16,185,129,0.06), rgba(255,255,255,0.02))",
+                borderColor: "rgba(16,185,129,0.12)",
+                background: "rgba(255,255,255,0.03)",
               }}
             >
               <div className="flex items-center gap-2.5 mb-5">
@@ -254,14 +237,14 @@ export default function HomePage() {
             <div
               className="card p-8"
               style={{
-                borderColor: "rgba(239,68,68,0.18)",
-                background: "linear-gradient(to bottom, rgba(239,68,68,0.06), rgba(255,255,255,0.02))",
+                borderColor: "rgba(255,92,92,0.12)",
+                background: "rgba(255,255,255,0.03)",
               }}
             >
               <div className="flex items-center gap-2.5 mb-5">
                 <div
                   className="w-6 h-6 rounded-full flex items-center justify-center text-xs"
-                  style={{ background: "rgba(239,68,68,0.12)", color: "#f87171" }}
+                  style={{ background: "rgba(255,92,92,0.12)", color: "#ff8a8a" }}
                 >
                   ⚠
                 </div>
@@ -275,7 +258,7 @@ export default function HomePage() {
                   "Wallet top-ups: constant barrier",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                    <span className="w-1 h-1 rounded-full mt-2 flex-shrink-0" style={{ background: "#f87171" }} />
+                    <span className="w-1 h-1 rounded-full mt-2 flex-shrink-0" style={{ background: "#ff8a8a" }} />
                     {item}
                   </li>
                 ))}
